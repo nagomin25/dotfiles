@@ -15,7 +15,7 @@ LazyVimのテーマを変えただけです。これからいろいろプラグ�
 
 ### 新しい環境での復元
 ```bash
-git clone https://github.com/nagomin25/dotfilees.git ~/dotfiles
+git clone https://github.com/nagomin25/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 stow config vim zsh
 ```
