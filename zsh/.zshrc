@@ -117,7 +117,24 @@ source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 unset zle_bracketed_paste
 
-# Autosuggestion color settings
-export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#586e75,bg=none,bold=false,underline=false'
-
 export PATH="/opt/nvim/bin:$PATH"
+
+# Autosuggestions確定時の色リセット
+_my_zsh_autosuggest_accept() {
+    zle forward-char
+    # 強制的にプロンプト再描画
+    zle reset-prompt
+    # POSTDISPLAYをクリア
+    unset POSTDISPLAY
+    # 画面を再描画
+    zle -R
+}
+zle -N _my_zsh_autosuggest_accept
+
+# 右矢印キーを新しい関数にバインド
+bindkey '^[[C' _my_zsh_autosuggest_accept  # 通常の右矢印
+bindkey '^[OC' _my_zsh_autosuggest_accept  # アプリケーションモードの右矢印
+bindkey "^[[1;5C" _my_zsh_autosuggest_accept  # Ctrl+Right
+
+# Autosuggestionsの色設定
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#586e75,bg=none'
