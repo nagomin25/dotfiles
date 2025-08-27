@@ -113,7 +113,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#93a1a1,bg=none,bold,underline'
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 unset zle_bracketed_paste
@@ -121,5 +120,4 @@ unset zle_bracketed_paste
 # Autosuggestion color settings
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#586e75,bg=none,bold=false,underline=false'
 
-# コマンド確定後の色をリセット
-ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(accept-line)
+export PATH="/opt/nvim/bin:$PATH"
