@@ -3,10 +3,9 @@ return {
   -- LazyVimのデフォルトtokyonightを無効化
   {
     "folke/tokyonight.nvim",
-    enabled = false,
+    enabled = true,
   },
 
-  
   -- solarized-osaka テーマを追加
   {
     "craftzdog/solarized-osaka.nvim",
@@ -14,11 +13,11 @@ return {
     priority = 1000,
     opts = function()
       return {
-        transparent = true,           -- 背景透過設定
-        terminal_colors = true,       -- ターミナルカラーの設定
+        transparent = true, -- 背景透過設定
+        terminal_colors = true, -- ターミナルカラーの設定
         styles = {
-          sidebars = "transparent",   -- サイドバーのスタイル
-          floats = "transparent",     -- フローティングウィンドウのスタイル
+          sidebars = "transparent", -- サイドバーのスタイル
+          floats = "transparent", -- フローティングウィンドウのスタイル
         },
       }
     end,
