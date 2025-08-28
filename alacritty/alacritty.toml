@@ -314,6 +314,3 @@ working_directory = "None"  # Default: "None"
 
 # Offer IPC using alacritty msg (unix only)
 ipc_socket = true  # Default: true
-import = [
-    "yorumi-abyss.toml"
-]
