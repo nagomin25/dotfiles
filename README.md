@@ -11,7 +11,7 @@ LazyVimのテーマを変えただけです。これからいろいろプラグ�
 - **Multiplexer**: Zellij
 - **Manager**: GNU Stow
 
-## 📦 セットアップ
+## 📦 Windows(WSL環境)でのセットアップ
 
 ### 新しい環境での復元
 ```bash
@@ -21,6 +21,13 @@ stow config vim zsh
 ```
 
 ### 必要な依存関係
+
+alcarittyにはHackGenフォントを指定しました。
+インストールされていないと起動ができないので先に以下から手動でWindowsにインストールして下さい。
+https://github.com/yuru7/HackGen/releases
+HackGen_NF_バージョン.zipが必要なフォントが入ったzipです。
+もちろん自分の好きなフォントにしてもかまいません。
+
 ```bash
 # 基本ツールのインストール
 sudo apt update
