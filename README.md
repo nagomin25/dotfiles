@@ -1,32 +1,42 @@
-# My Dotfiles
+# 🌟 My Dotfiles
 
-WSL Ubuntu環境用の設定ファイルです。
-LazyVimのテーマを変えただけです。これからいろいろプラグインを触って育てていこうと思っています。
+WSL Ubuntu環境用の設定ファイル管理リポジトリです。  
+現在いろいろ整備中です。
 
 ## 🛠️ 使用ツール
 
-- **Shell**: zsh + Oh-My-Zsh + Powerlevel10k
-- **Editor**: Neovim (LazyVim + solarized-osaka theme)
-- **Terminal**: Alacritty (透明度設定)
-- **Multiplexer**: Zellij
-- **Manager**: GNU Stow
+| カテゴリ | ツール | 説明 |
+|---------|--------|------|
+| **Shell** | zsh + Oh-My-Zsh + Powerlevel10k | 高機能シェル環境 |
+| **Editor** | Neovim | LazyVim + solarized-osaka theme |
+| **Terminal** | Alacritty | 透明度設定対応 |
+| **Multiplexer** | Zellij | モダンなターミナルマルチプレクサー |
+| **Manager** | GNU Stow | シンボリックリンク管理 |
 
-## 📦 Windows(WSL環境)でのセットアップ
+## 📦 Windows (WSL環境) でのセットアップ
 
-### 新しい環境での復元
-```bash
-git clone https://github.com/nagomin25/dotfiles.git ~/dotfiles
-cd ~/dotfiles
-stow config vim zsh
-```
+### 🔧 必要な依存関係
 
-### 必要な依存関係
+#### 1. HackGenフォントのインストール（Windows側）
+Alacrittyには**HackGenフォント**を指定しています。  
+インストールされていないと起動できないので、先に以下から手動でWindowsにインストールしてください。
 
-alcarittyにはHackGenフォントを指定しました。
-インストールされていないと起動ができないので先に以下から手動でWindowsにインストールして下さい。
-https://github.com/yuru7/HackGen/releases
-HackGen_NF_バージョン.zipが必要なフォントが入ったzipです。
-もちろん自分の好きなフォントにしてもかまいません。
+📥 **ダウンロード先**: https://github.com/yuru7/HackGen/releases  
+※ `HackGen_NF_バージョン.zip` が必要なフォントが入ったzipです。
+
+#### 2. Zellijのインストール（WSL側）
+ターミナル起動時にzellijを同時起動するように設定してあるため、あらかじめ別のターミナルソフトを使用してWSL環境にインストールしてください。
+
+📚 **参考リポジトリ**: https://github.com/zellij-org/zellij
+
+> **Note**: Zellijのインストールには`cargo`が必要です。Rustをインストールすれば一緒に入るので、以下のコマンドでインストールしてください。
+> ```bash
+> curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+> ```
+
+これでAlacrittyが実行できるようになります。
+
+### 📋 基本ツールのインストール
 
 ```bash
 # 基本ツールのインストール
@@ -37,8 +47,27 @@ sudo apt install zsh vim neovim stow git curl
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Powerlevel10kテーマ
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \
+    ~/.oh-my-zsh/custom/themes/powerlevel10k
 ```
+
+### 🔄 新しい環境での復元
+
+```bash
+# リポジトリのクローン
+git clone https://github.com/nagomin25/dotfiles.git ~/dotfiles
+```
+
+> ⚠️ **重要**: 既存の設定ファイルがある場合は、必ずバックアップを取ってから削除するか、クローンしてきたファイルと結合してください。
+
+その後、以下のstowコマンドを実行してシンボリックリンクを作成：
+
+```bash
+cd ~/dotfiles
+stow config zsh
+```
+
+ターミナルを再起動するか、zshを再読み込みしてください。
 
 ## 📁 ディレクトリ構成
 
@@ -48,8 +77,6 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/cu
 │   └── .config/
 │       ├── nvim/          # Neovim設定
 │       └── zellij/        # Zellij設定
-├── vim/
-│   └── .vimrc            # Vim設定
 ├── zsh/
 │   └── .zshrc            # Zsh設定
 └── scripts/              # 便利スクリプト
@@ -57,7 +84,8 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/cu
 
 ## 🚀 使い方
 
-### 設定の更新
+### ✏️ 設定の更新
+
 ```bash
 # 設定ファイルを編集（例：Neovim）
 vim ~/.config/nvim/init.lua
@@ -69,7 +97,8 @@ git commit -m "Update nvim config"
 git push
 ```
 
-### 新しい設定の追加
+### ➕ 新しい設定の追加
+
 ```bash
 # 新しい設定ファイルを追加
 mkdir -p ~/dotfiles/config/.config/git
@@ -82,15 +111,21 @@ stow -R config
 
 ## ⚡ 主要なキーバインド
 
-### Neovim (LazyVim)
-- `<Space>e` - ファイルエクスプローラー
-- `<Space>ac` - Claude Code起動
-- `<Space>ff` - ファイル検索
+### 🎹 Neovim (LazyVim)
+| キー | 動作 |
+|------|------|
+| `<Space>e` | ファイルエクスプローラー |
+| `<Space>ac` | Claude Code起動 |
+| `<Space>ff` | ファイル検索 |
 
-### Zellij
-- `Alt + t` - 新しいタブ
-- `Alt + h/l` - タブ切り替え
-- `Alt + |/-` - ペイン分割
+### 🪟 Zellij
+| キー | 動作 |
+|------|------|
+| `Alt + t` | 新しいタブ |
+| `Alt + h/l` | タブ切り替え |
+| `Alt + \|/-` | ペイン分割 |
 
 ---
-🎨 **テーマ**: Solarized Osaka (透明度付き)
+
+### 🎨 テーマ
+**Solarized Osaka** (透明度付き) - 目に優しく美しいカラースキーム
