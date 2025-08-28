@@ -51,6 +51,41 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \
     ~/.oh-my-zsh/custom/themes/powerlevel10k
 ```
 
+
+### 💻 Alacrittyのセットアップ（Windows側）
+
+上記の準備が完了したら、以下の手順でAlacrittyをセットアップします：
+
+#### 1. Alacrittyのインストール
+Windows側にAlacrittyをインストールしてください。
+
+🔗 **公式サイト**: https://github.com/alacritty/alacritty/releases  
+※ `Alacritty-v*.*.*.msi` または `alacritty-windows-portable.zip` をダウンロード
+
+#### 2. 設定ファイルの配置
+リポジトリから設定ファイルをWindows側に配置します：
+
+```powershell
+# PowerShellで実行（管理者権限不要）
+# Alacritty設定ディレクトリを作成
+New-Item -Path "$env:APPDATA\alacritty" -ItemType Directory -Force
+
+# WSLからファイルをコピー（既存設定のバックアップを推奨）
+wsl cp ~/dotfiles/alacritty/alacritty.toml /mnt/c/Users/$USER/AppData/Roaming/alacritty/
+```
+
+> ⚠️ **既存設定がある場合**：
+> ```powershell
+> # バックアップを作成
+> Copy-Item "$env:APPDATA\alacritty\alacritty.toml" `
+>           "$env:APPDATA\alacritty\alacritty.toml.backup"
+> ```
+> バックアップ後、新しい設定で上書きするか、手動で設定を結合してください。
+
+#### 3. 動作確認
+Alacrittyを起動して、WSL環境が正しく表示されることを確認してください。  
+問題が発生した場合は、上記の依存関係（フォント、Zellij等）を再確認してください。
+
 ### 🔄 新しい環境での復元
 
 ```bash
