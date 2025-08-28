@@ -138,3 +138,6 @@ bindkey "^[[1;5C" _my_zsh_autosuggest_accept  # Ctrl+Right
 
 # Autosuggestionsの色設定
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#586e75,bg=none'
+alias vi="nvim"
+alias vim="nvim"
+alias view="nvim -R"
