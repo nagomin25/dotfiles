@@ -235,8 +235,15 @@ osc52 = "OnlyCopy"  # Default: "OnlyCopy"
 # import = []
 
 # The path of your favorite shell
-shell = "wsl.exe ~"
-
+[terminal.shell]
+program = "wsl.exe ~"
+args = [
+    "-e",
+    "zsh",
+    "-l",
+    "-c",
+    "zellij attach --index 0 --create"
+]
 # ====================== MOUSE ======================
 [mouse]
 
