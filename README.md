@@ -41,7 +41,7 @@ Alacrittyには**HackGenフォント**を指定しています。
 ```bash
 # 基本ツールのインストール
 sudo apt update
-sudo apt install zsh vim neovim stow git curl
+sudo apt install zsh vim stow git curl
 
 # Oh-My-Zshのインストール
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
