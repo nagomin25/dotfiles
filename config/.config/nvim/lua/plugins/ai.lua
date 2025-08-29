@@ -27,28 +27,4 @@ return {
       { "<leader>ad", "<cmd>ClaudeCodeDiffDeny<cr>", desc = "Deny diff" },
     },
   },
-  {
-    "Exafunction/codeium.vim",
-    event = "BufEnter",
-    config = function()
-      -- Accept suggestion
-      vim.keymap.set("i", "<Tab>", function()
-        if vim.fn["codeium#GetStatusString"]() ~= " ON" then
-          return "<Tab>"
-        end
-        return vim.fn["codeium#Accept"]()
-      end, { expr = true })
-
-      -- Navigate suggestions
-      vim.keymap.set("i", "<C-;>", function()
-        return vim.fn["codeium#CycleCompletions"](1)
-      end, { expr = true })
-      vim.keymap.set("i", "<C-,>", function()
-        return vim.fn["codeium#CycleCompletions"](-1)
-      end, { expr = true })
-      vim.keymap.set("i", "<C-x>", function()
-        return vim.fn["codeium#Clear"]()
-      end, { expr = true })
-    end,
-  },
 }
