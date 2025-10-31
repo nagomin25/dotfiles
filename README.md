@@ -3,7 +3,6 @@
 WSL Ubuntu環境用の設定ファイル管理リポジトリです。  
 現在いろいろ整備中です。
 
-test
 ## 🛠️ 使用ツール
 
 | カテゴリ | ツール | 説明 |
@@ -19,7 +18,7 @@ test
 ```bash
 # 基本ツールのインストール
 sudo apt update
-sudo apt install zsh vim stow git curl
+sudo apt install zsh vim stow git curl tmux
 
 # Oh-My-Zshのインストール
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -58,8 +57,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 ~/dotfiles/
 ├── config/
 │   └── .config/
-│       ├── nvim/          # Neovim設定
-│       └── zellij/        # Zellij設定
+│        └── nvim/          # Neovim設定
 ├── zsh/
 │   └── .zshrc            # Zsh設定
 └── scripts/              # 便利スクリプト
@@ -100,13 +98,6 @@ stow -R config
 | `<Space>e` | ファイルエクスプローラー |
 | `<Space>ac` | Claude Code起動 |
 | `<Space>ff` | ファイル検索 |
-
-### 🪟 Zellij
-| キー | 動作 |
-|------|------|
-| `Alt + t` | 新しいタブ |
-| `Alt + h/l` | タブ切り替え |
-| `Alt + \|/-` | ペイン分割 |
 
 ---
 
