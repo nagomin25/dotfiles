@@ -105,6 +105,11 @@ stow config zsh
 
 ターミナルを再起動するか、zshを再読み込みしてください。
 
+以下のプラグインの設定をしているので下記のコマンドでインストールしてください。
+```bash
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+```
+
 ## 📁 ディレクトリ構成
 
 ```
