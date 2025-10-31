@@ -141,3 +141,7 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#586e75,bg=none'
 alias vi="nvim"
 alias vim="nvim"
 alias view="nvim -R"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+export PATH="$HOME/.local/share/gem/ruby/3.2.0/bin:$PATH"
