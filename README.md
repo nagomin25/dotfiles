@@ -10,32 +10,9 @@ test
 |---------|--------|------|
 | **Shell** | zsh + Oh-My-Zsh + Powerlevel10k | 高機能シェル環境 |
 | **Editor** | Neovim | LazyVim + solarized-osaka theme |
-| **Terminal** | Alacritty | 透明度設定対応 |
-| **Multiplexer** | Zellij | モダンなターミナルマルチプレクサー |
 | **Manager** | GNU Stow | シンボリックリンク管理 |
 
 ## 📦 Windows (WSL環境) でのセットアップ
-
-### 🔧 必要な依存関係
-
-#### 1. HackGenフォントのインストール（Windows側）
-Alacrittyには**HackGenフォント**を指定しています。  
-インストールされていないと起動できないので、先に以下から手動でWindowsにインストールしてください。
-
-📥 **ダウンロード先**: https://github.com/yuru7/HackGen/releases  
-※ `HackGen_NF_バージョン.zip` が必要なフォントが入ったzipです。
-
-#### 2. Zellijのインストール（WSL側）
-ターミナル起動時にzellijを同時起動するように設定してあるため、あらかじめ別のターミナルソフトを使用してWSL環境にインストールしてください。
-
-📚 **参考リポジトリ**: https://github.com/zellij-org/zellij
-
-> **Note**: Zellijのインストールには`cargo`が必要です。Rustをインストールすれば一緒に入るので、以下のコマンドでインストールしてください。
-> ```bash
-> curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-> ```
-
-これでAlacrittyが実行できるようになります。
 
 ### 📋 基本ツールのインストール
 
@@ -51,41 +28,6 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \
     ~/.oh-my-zsh/custom/themes/powerlevel10k
 ```
-
-
-### 💻 Alacrittyのセットアップ（Windows側）
-
-上記の準備が完了したら、以下の手順でAlacrittyをセットアップします：
-
-#### 1. Alacrittyのインストール
-Windows側にAlacrittyをインストールしてください。
-
-🔗 **公式サイト**: https://github.com/alacritty/alacritty/releases  
-※ `Alacritty-v*.*.*.msi` または `alacritty-windows-portable.zip` をダウンロード
-
-#### 2. 設定ファイルの配置
-リポジトリから設定ファイルをWindows側に配置します：
-
-```powershell
-# PowerShellで実行（管理者権限不要）
-# Alacritty設定ディレクトリを作成
-New-Item -Path "$env:APPDATA\alacritty" -ItemType Directory -Force
-
-# WSLからファイルをコピー（既存設定のバックアップを推奨）
-wsl cp ~/dotfiles/alacritty/alacritty.toml /mnt/c/Users/$USER/AppData/Roaming/alacritty/
-```
-
-> ⚠️ **既存設定がある場合**：
-> ```powershell
-> # バックアップを作成
-> Copy-Item "$env:APPDATA\alacritty\alacritty.toml" `
->           "$env:APPDATA\alacritty\alacritty.toml.backup"
-> ```
-> バックアップ後、新しい設定で上書きするか、手動で設定を結合してください。
-
-#### 3. 動作確認
-Alacrittyを起動して、WSL環境が正しく表示されることを確認してください。  
-問題が発生した場合は、上記の依存関係（フォント、Zellij等）を再確認してください。
 
 ### 🔄 新しい環境での復元
 
