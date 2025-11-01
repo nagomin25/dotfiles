@@ -28,6 +28,9 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \
     ~/.oh-my-zsh/custom/themes/powerlevel10k
 
 # nvimもインストール
+
+# fish関連のインストールは以下のリンクを参考に
+https://qiita.com/sashisusesouyu/items/62248d4d256cd2bb92ac
 ```
 
 ### 🔄 新しい環境での復元
